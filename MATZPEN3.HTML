@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מצפן המפץ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* ממקם את האלמנטים במרכז */
+      width: 100%;
+      background-color: #333333;
+      padding: 10px;
+    }
+    header img {
+      height: 50px;
+      margin-left: 10px; /* מרווח בין הסמל לכותרת */
+    }
+    h1 {
+      color: #4CAF50;
+      margin: 0;
+      text-align: center;
+    }
+    form {
+      background-color: #333333;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    input, select, textarea {
+      background-color: #444444;
+      color: #ffffff;
+    }
+    button {
+      background-color: #4CAF50;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="הורדה.png" alt="סמל מצפן המפץ">
+    <h1>מצפן המפץ</h1>
+  </header>
+  
+  <form id="trainingForm">
+    <label for="name">שם מלא:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="framework">מסגרת:</label>
+    <input type="text" id="framework" name="framework" required>
+    
+    <label for="phone">מספר טלפון:</label>
+    <input type="tel" id="phone" name="phone" required>
+    
+    <label for="date">תאריך:</label>
+    <input type="date" id="date" name="date" required>
+    
+    <label for="time">שעה:</label>
+    <input type="time" id="time" name="time" required>
+    
+    <label for="category">קטגוריית אימון:</label>
+    <select id="category" name="category" required>
+      <option value="אימון תאג'ד מקצועי">אימון תאג"ד מקצועי</option>
+      <option value="אימון מח'צ">אימון מח"צ</option>
+      <option value="אימון חובשים">אימון חובשים</option>
+      <option value="אימון פינוי">אימון פינוי</option>
+    </select>
+    
+    <button type="button" onclick="submitForm()">שלח בקשה</button>
+  </form>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const framework = document.getElementById('framework').value;
+      const phone = document.getElementById('phone').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const category = document.getElementById('category').value;
+
+      if (!name || !framework || !phone || !date || !time || !category) {
+        alert('נא למלא את כל השדות!');
+        return;
+      }
+
+      alert('בקשת האימון נשלחה בהצלחה!');
+      document.getElementById('trainingForm').reset();
+    }
+  </script>
+</body>
+</html>
